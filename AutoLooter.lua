@@ -117,24 +117,20 @@ SLASH_AUTOLOOTER1 = '/autolooter'
 SlashCmdList["AUTOLOOTER"] = AutoLooter_Commands
 
 local function autoloot(self, loot_id)
-  print("Entered autoloot")
   local texture, item_name, count, quality = GetLootRollItemInfo(loot_id)
  	
   if autoloot_on == true then
     for table_name, table_roll in pairs(autoloot_table) do
       if table_name == item_name then
         if table_roll == "pass" then
-	 	  print("Rolled pass on " .. item_name)
 		  table.insert(lootid_rolled_on, loot_id)
           RollOnLoot(loot_id, 0)
 	     end
         if table_roll == "need" then
-		  print("Rolled need on " .. item_name)
           table.insert(lootid_rolled_on, loot_id)
 		  RollOnLoot(loot_id, 1)
 	    end
         if table_roll == "greed" then
-		  print("Rolled greed on " .. item_name)
 		  table.insert(lootid_rolled_on, loot_id)
           RollOnLoot(loot_id, 2)
 	    end
@@ -144,12 +140,8 @@ local function autoloot(self, loot_id)
 end
 
 local function confirmloot(rollid, rolltype)
-	print("CONFIRM_LOOT_ROLL FUNCTION")
-	print(lootid_rolled_on)
-    
+
 	for i, v in ipairs(lootid_rolled_on) do
-		print (i, v, rollid, rolltype)
-		print ("Comparing " .. v, rollid)
 		if v == rollid then
 			ConfirmLootRoll(rollid,rolltype)
 			StaticPopup_Hide("CONFIRM_LOOT_ROLL")
@@ -166,21 +158,15 @@ eventFrame2:RegisterEvent("PLAYER_ENTERING_WORLD")
 
 eventFrame2:SetScript("OnEvent",function(self,event,...)
   if event == "CONFIRM_LOOT_ROLL" then
-     print("CONFIRM_LOOT_ROLL Fired")
-	 print(...)
-	 local rollid = select(1, ...)
+     local rollid = select(1, ...)
      local rolltype = select(2, ...)
-	 print("Calling confirmloot with " .. rollid, rolltype)
-     confirmloot(rollid, rolltype)
+	 confirmloot(rollid, rolltype)
   end   
   if event == "PLAYER_ENTERING_WORLD" or event == "GROUP_ROSTER_UPDATE" then
-    print("Resetting Loot IDs")
     lootid_rolled_on = {}
   end
   if event == "START_LOOT_ROLL" then
-    print("START_LOOT_ROLL")
-	local loot_id = select(1, ...)
-	print("loot_id is " .. loot_id)
-    autoloot(self, loot_id)
+    local loot_id = select(1, ...)
+	autoloot(self, loot_id)
   end
 end)

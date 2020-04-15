@@ -67,7 +67,8 @@ Finally, there are convienence functions for all ZG coins and bijous. For exampl
 Notes
 =====
 
-Items are saved when you logout the game, per character.
+- Items are saved when you logout the game, per character.
+- I'm a lazy coder so you automatically pass on black diamonds. This helps me, but I think it helps you too !
 
 Feature Suggestions
 ===================
