@@ -51,9 +51,30 @@ or
 /autolooter remove <SHIFT CLICK A MAGEBLADE>
 ```
 
+You can clear everything with
+
+```
+/autolooter clear
+```
+
 Finally, there are convienence functions for all ZG coins and bijous. For example.
 
 ```
 /autolooter need ZG
 /autolooter remove ZG
+```
+
+Notes
+=====
+
+Items are saved when you logout the game, per character.
+
+Feature Suggestions
+===================
+
+- A better GUI like interface (unlikely)
+- Let you link multiple items to add to the list. For example
+
+```
+/autolooter need <Azuresong Mageblade> <Staff of Dominanace>
 ```
