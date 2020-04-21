@@ -1,0 +1,8 @@
+## Interface: 11303
+## Title: AutoRoller
+## Notes: Automatically rolls on things.
+## Author: David Groves
+## SavedVariablesPerCharacter: autoroller_table, autoroller_on
+
+# Main
+Autoroller.lua
