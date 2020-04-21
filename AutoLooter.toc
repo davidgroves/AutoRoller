@@ -1,8 +1,0 @@
-## Interface: 11303
-## Title: AutoLooter
-## Notes: Loots things automatically
-## Author: David Groves
-## SavedVariablesPerCharacter: autoloot_table, autoloot_on
-
-# Main
-AutoLooter.lua
